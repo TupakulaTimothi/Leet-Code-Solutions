@@ -1,0 +1,20 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        vowels=['a','e','i','o','u','A','I','O','U','E']
+        vowels_list=[]
+        for i in s:
+            if i in vowels:
+                vowels_list.append(i)
+        vowels_list=list(reversed(vowels_list))
+        i=0
+        p=0
+        r=''
+        while i<len(s):
+            if s[i] in vowels:
+                print(p)
+                r=r+vowels_list[p]
+                p=p+1
+            else:
+                r=r+s[i]
+            i=i+1
+        return r
