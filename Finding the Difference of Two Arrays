@@ -1,0 +1,14 @@
+class Solution(object):
+    def findDifference(self, nums1, nums2):
+        r=[]
+        r1 = []
+        r2 = []
+        for i in nums1:
+            if i not in nums2 and i not in r1:
+                r1.append(i)
+        r.append(r1)
+        for i in nums2:
+            if i not in nums1 and i not in r2:
+                r2.append(i)
+        r.append(r2)
+        return r
