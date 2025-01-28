@@ -1,0 +1,15 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        l=[]
+        l1=[]
+        r=0
+        for i in nums:
+            if i not in l:
+                l.append(i)
+            else:
+                l1.append(i)
+
+        for i in nums:
+            if i not in l1:
+                r = i
+        return r
