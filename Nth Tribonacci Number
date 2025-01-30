@@ -1,0 +1,20 @@
+class Solution(object):
+    def tribonacci(self, n):
+        if n==0:
+            n4=0
+        elif n==1 or n==2:
+            n4=1
+
+        else:
+            n1=0
+            n2=1
+            n3=1
+            n4=n1+n2+n3
+            count=4
+            while count<=n:
+                n1=n2
+                n2=n3
+                n3=n4
+                n4=n1+n2+n3
+                count=count+1
+        return n4
