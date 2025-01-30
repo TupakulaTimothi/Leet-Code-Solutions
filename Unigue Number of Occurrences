@@ -1,0 +1,17 @@
+def uniqueOccurrences(arr):
+    OccurredValue=[]   #This is for Traversed Value
+    OccurrenceCount=[]  #This is for Occurrence Count Of Traversed Value
+    for i in range(0,len(arr)):
+        count=0
+        if arr[i] not in OccurredValue:
+            for j in range(i,len(arr)):
+                if arr[i]==arr[j]:
+                    count+=1
+            OccurredValue.append(arr[i])
+            OccurrenceCount.append(count)
+
+    for i in range(0,len(OccurredValue)):
+        for j in range(i+1,len(OccurredValue)):
+            if OccurrenceCount[i]==OccurrenceCount[j]:
+                return False
+    return True
