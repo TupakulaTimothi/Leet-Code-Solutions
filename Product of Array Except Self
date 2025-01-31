@@ -1,15 +1,27 @@
-class Solution(object):
-    def productExceptSelf(self, nums):
-        answer=[]
-        for i in range(len(nums)):
-            product=1
-            for j in range(len(nums)):
-                if i==j:
-                    flag=1
-                else:
-                    product=product*nums[j]
-            answer.append(product)
+
+class Solution:
+    def productExceptSelf(self, nums) :
+            # Determine the length of the input list 'nums'.
+        num_length = len(nums)
+      
+        # Initialize the answer list with 1's of the same length as 'nums'.
+        answer = [1] * num_length
+      
+        # 'left' will represent the cumulative product of elements to the left of the current element.
+        left = 1
+        for i in range(num_length):
+            # Store the cumulative product in the 'answer' list at the current index 'i'.
+            answer[i] = left
+            # Update 'left' to include the product of the current element.
+            left *= nums[i]
+      
+        # 'right' will represent the cumulative product of elements to the right of the current element.
+        right = 1
+        for i in range(num_length - 1, -1, -1):
+            # Multiply the existing value in 'answer' by the 'right' value which is the product of elements to the right of 'i'.
+            answer[i] *= right
+            # Update 'right' to include the product of the current element.
+            right *= nums[i]
+      
+        # Return the 'answer' list which now contains the products except self.
         return answer
-
-
-print(productExceptSelf([-1,1,0,-3,3]))
