@@ -1,0 +1,13 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+        l=l1=len(nums)
+        i=0
+        while i != l1:
+            if nums[i]==val:
+                nums.pop(i)
+            else:
+                i+=1
+            l1=len(nums)
+
+        return len(nums)
+  
