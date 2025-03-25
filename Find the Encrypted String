@@ -1,0 +1,7 @@
+class Solution(object):
+    def getEncryptedString(self, s, k):
+        result=''
+        test=s*5*k
+        for i in range(0,len(s)):
+               result=result+test[i+k]
+        return result
