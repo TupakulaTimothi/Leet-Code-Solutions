@@ -1,0 +1,17 @@
+class Solution(object):
+    def setZeroes(self, matrix):
+        l=[]
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                if matrix[i][j]==0:
+                    l1=[]
+                    l1.append(i)
+                    l1.append(j)
+                    l.append(l1)
+        for i in l:
+            for j in i:
+                for x in range(len(matrix)):
+                    for y in range(len(matrix[x])):
+                        if x==j or y==j:
+                            matrix[x][y]=0
+        return matrix
