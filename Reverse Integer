@@ -1,0 +1,11 @@
+class Solution(object):
+    def reverse(self,x):
+        INT_MIN, INT_MAX = -2**31, 2**31 - 1
+        str_x = str(x)
+        if str_x[0] == "-":
+            reversed_x = int("-" + str_x[:0:-1])  # Reverse digits excluding the '-' sign
+        else:
+            reversed_x = int(str_x[::-1])  # Reverse the digits directly
+        if reversed_x < INT_MIN or reversed_x > INT_MAX:
+            return 0
+        return reversed_x
