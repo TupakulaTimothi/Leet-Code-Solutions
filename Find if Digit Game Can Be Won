@@ -1,0 +1,18 @@
+class Solution(object):
+    def canAliceWin(self, nums):
+        l1=[]
+        l2=[]
+        for i in nums:
+            if len(str(i))==1:
+                l1.append(i)
+            else:
+                l2.append(i)
+        if sum(l1)==sum(l2):
+            return False
+        else:
+            return True
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        
