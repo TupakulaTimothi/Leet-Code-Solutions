@@ -1,0 +1,20 @@
+class Solution(object):
+    def isHappy(self, n):
+        flag=0
+        while n!=1 and flag!=10:
+            flag+=1
+            n1=n
+            sum=0
+            while n1:
+                sum+=(n1%10)**2
+                n1//=10
+            n=sum
+        if flag==10:
+            return False
+        else:
+            return True
+        """
+        :type n: int
+        :rtype: bool
+        """
+        
