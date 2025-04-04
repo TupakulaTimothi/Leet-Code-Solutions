@@ -1,0 +1,15 @@
+class Solution(object):
+    def addDigits(self, num):
+        sum=num
+        while sum>9:
+            t=sum
+            sum1=0
+            while t:
+                sum1+=(t%10)
+                t//=10
+            sum=sum1
+        return sum
+        """
+        :type num: int
+        :rtype: int
+        """
