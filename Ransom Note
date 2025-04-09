@@ -1,0 +1,18 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        l=[i for i in magazine]
+        c=0
+        for i in ransomNote:
+            if i in l:
+                del l[l.index(i)]
+                c+=1
+        if c==len(ransomNote):
+            return True
+        else:
+            return False
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        
