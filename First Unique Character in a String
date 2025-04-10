@@ -1,0 +1,18 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        l=[i for i in s]
+        c=0;l1=[]
+        while c!=len(s):
+            r=l[0]
+            c+=1
+            del l[0]
+            if r in l :
+                l1.append(r)
+            elif r not in l and r not in l1:
+                return c-1
+        return -1
+        """
+        :type s: str
+        :rtype: int
+        """
+        
