@@ -1,0 +1,17 @@
+class Solution(object):
+    def countSegments(self, s):
+        l=s.split(' ')
+        c=0
+        if len(s)==0:
+            return 0
+        print(l)
+        for i in l:
+            if i!=' ' and i!='':
+                c+=1
+                print(i,c)
+        return c
+        """
+        :type s: str
+        :rtype: int
+        """
+        
