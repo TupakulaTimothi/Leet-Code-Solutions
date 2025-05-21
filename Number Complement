@@ -1,0 +1,10 @@
+class Solution(object):
+    def findComplement(self, num):
+        b=bin(num)[2:]
+        com="".join('1' if i=='0' else '0' for i in b)
+        return int(com,2)
+        """
+        :type num: int
+        :rtype: int
+        """
+        
