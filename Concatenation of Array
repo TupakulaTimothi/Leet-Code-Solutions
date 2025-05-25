@@ -1,0 +1,20 @@
+class Solution(object):
+    def getConcatenation(self, nums):
+        ans=[]
+        for j in range(2):
+            for i in nums:
+                ans.append(i)
+        return ans
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+Optimal:
+class Solution(object):
+    def getConcatenation(self, nums):
+        return nums*2
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
