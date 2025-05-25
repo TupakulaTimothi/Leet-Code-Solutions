@@ -1,0 +1,12 @@
+class Solution(object):
+    def buildArray(self, nums):
+        ans=[0 for i in range(len(nums))]
+        for i in range(len(nums)):
+            a=nums[i]
+            ans[i]=nums[a]
+        return ans
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
