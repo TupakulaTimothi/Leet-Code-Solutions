@@ -1,0 +1,18 @@
+class Solution(object):
+    def rearrangeArray(self, nums):
+        p=[]
+        n=[]
+        for i in nums:
+            if i>0:
+                p.append(i)
+            else:
+                n.append(i)
+        for i in range(len(p)):
+            nums[i*2]=p[i]
+            nums[i*2+1]=n[i]
+        return nums
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
