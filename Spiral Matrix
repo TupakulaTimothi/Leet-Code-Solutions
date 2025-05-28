@@ -1,0 +1,33 @@
+class Solution(object):
+    def spiralOrder(self, matrix):
+        if not matrix or not matrix[0]:
+            return []
+
+        left, right = 0, len(matrix[0]) - 1
+        top, bottom = 0, len(matrix) - 1
+        l = []
+
+        while left <= right and top <= bottom:
+            # Move right
+            for i in range(left, right + 1):
+                l.append(matrix[top][i])
+            top += 1
+
+            # Move down
+            for i in range(top, bottom + 1):
+                l.append(matrix[i][right])
+            right -= 1
+
+            # Move left (only if there's a row remaining)
+            if top <= bottom:
+                for i in range(right, left - 1, -1):
+                    l.append(matrix[bottom][i])
+                bottom -= 1
+
+            # Move up (only if there's a column remaining)
+            if left <= right:
+                for i in range(bottom, top - 1, -1):
+                    l.append(matrix[i][left])
+                left += 1
+        
+        return l
