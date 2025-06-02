@@ -1,0 +1,17 @@
+class Solution(object):
+    def minEatingSpeed(self, piles, h):
+        low,high=1,max(piles)
+
+        while low<high:
+            mid=(low+high)//2
+            s=sum((num+mid-1)//mid for num in piles)
+            if s<=h:
+                high=mid
+            else:
+                low=mid+1
+        return low
+        """
+        :type piles: List[int]
+        :type h: int
+        :rtype: int
+        """
