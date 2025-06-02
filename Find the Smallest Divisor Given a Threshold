@@ -1,0 +1,10 @@
+class Solution:
+    def smallestDivisor(self, nums, threshold):
+        l, r = 1, max(nums)
+        while l < r:
+            mid = (l + r) // 2 
+            if sum((x + mid - 1) // mid for x in nums) <= threshold:
+                r = mid
+            else:
+                l = mid + 1
+        return mid
