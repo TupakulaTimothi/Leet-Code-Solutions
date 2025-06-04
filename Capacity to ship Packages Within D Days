@@ -1,0 +1,26 @@
+class Solution(object):
+    def shipWithinDays(self, weights, days):
+        low=max(weights)
+        high=sum(weights)
+        d=days+1
+        while low<high:
+            s=0
+            d=1
+            mid=(low+high)//2
+            for i in range(len(weights)):
+                if s+weights[i]<=mid:
+                    s=s+weights[i]
+                else:
+                    d+=1
+                    s=weights[i]
+            if d<=days:
+                high=mid
+            else:
+                low=mid+1
+        return low
+        """
+        :type weights: List[int]
+        :type days: int
+        :rtype: int
+        """
+        
