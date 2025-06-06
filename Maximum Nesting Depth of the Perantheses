@@ -1,0 +1,16 @@
+class Solution(object):
+    def maxDepth(self, s):
+        maxi=0
+        c=0
+        for i in s:
+            if i==')':
+                maxi=max(maxi,c)
+                c=c-1
+            elif i=='(':
+                c+=1
+        return maxi
+        """
+        :type s: str
+        :rtype: int
+        """
+        
