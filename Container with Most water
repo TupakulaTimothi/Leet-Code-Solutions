@@ -1,0 +1,17 @@
+# Python Program to find the maximum amount of water
+# by iterating over all possible boundaries
+class Solution:
+    def maxArea(self,arr):
+        p1=0
+        p2=len(arr)-1
+        ans=0
+        while p1<p2:
+            l=min(arr[p1],arr[p2])
+            b=p2-p1
+            area=l*b
+            ans=max(ans,area)
+            if arr[p1]<arr[p2]:
+                p1+=1
+            else:
+                p2-=1
+        return ans
