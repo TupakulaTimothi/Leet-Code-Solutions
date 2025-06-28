@@ -1,0 +1,60 @@
+#Brute force code
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def deleteMiddle(self, head):
+        i=head
+        c=0
+        while i:
+            c+=1
+            i=i.next
+        if c==1:
+            head=None
+            return head
+        middle=c//2
+        i=head
+        c=0
+        while i.next:
+            if middle-1==c:
+                break
+            c+=1
+            i=i.next
+        if i.next is None:
+            i.next=None
+        else:
+            i.next=i.next.next
+        return head
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+
+#Optimal Solution
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def deleteMiddle(self, head):
+        if head is None or head.next is None:
+            head=None
+            return head
+        fast=head
+        slow=head
+        while fast and fast.next:
+            prev=slow
+            slow=slow.next
+            fast=fast.next.next
+        print(slow.val)
+        prev.next=slow.next
+        return head
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        
