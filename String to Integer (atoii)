@@ -1,0 +1,43 @@
+class Solution(object):
+    def myAtoi(self, s):
+        if len(s)==0:
+            return 0
+
+        flag=-1
+        n=len(s)
+        for i in range(n):
+            if s[i]=='-' or s[i]=='+' or s[i].isdigit():
+                flag=i
+                break
+            elif s[i]==' ':
+                pass
+            else:
+                return 0
+
+        print(flag)
+        if flag==-1:
+            return 0
+            
+        no=''
+        if (s[flag]=='-' or s[flag]=='+') and flag<n:
+            no=s[flag]
+            flag+=1
+            if flag>=n or not s[flag].isdigit():
+                return 0
+        while flag<n and s[flag].isdigit():
+            no+=s[flag]
+            print(flag,no)
+            flag+=1
+        if no == '' or no == '+' or no == '-':
+            return 0
+        print(no)
+        if int(no)>=2147483647:
+            return 2147483647
+        if int(no)<=-2147483648:
+            return -2147483648
+        return int(no)
+        """
+        :type s: str
+        :rtype: int
+        """
+        
