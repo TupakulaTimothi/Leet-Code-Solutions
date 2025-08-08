@@ -1,0 +1,14 @@
+class Solution(object):
+    def myPow(self, x, n):
+        if n==0:
+            return 1
+        result = 1
+        power=abs(n)
+        while power>0:
+            if power%2==1:
+                result*=x
+                power-=1
+            else:
+                power=power/2
+                x=x*x
+        return result if n>0 else 1/result
