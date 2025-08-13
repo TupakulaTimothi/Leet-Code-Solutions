@@ -1,0 +1,17 @@
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        result = []
+
+        def backtrack(start, path):
+            result.append(path[:])  # Add a copy of the current subset
+            for i in range(start, len(nums)):
+                path.append(nums[i])         # Include nums[i]
+                backtrack(i + 1, path)       # Recurse
+                path.pop()                   # Backtrack
+
+        backtrack(0, [])
+        return result
