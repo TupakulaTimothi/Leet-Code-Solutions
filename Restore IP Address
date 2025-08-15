@@ -1,0 +1,27 @@
+class Solution(object):
+    def restoreIpAddresses(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        result = []
+
+        def is_valid(segment):
+            # Segment must be <= 255 and cannot have leading zeros (unless it's '0')
+            return len(segment) == 1 or (segment[0] != '0' and int(segment) <= 255)
+
+        def backtrack(start, path):
+            if len(path) == 4:
+                if start == len(s):
+                    result.append('.'.join(path))
+                return
+
+            for length in range(1, 4):  # IP segments are 1 to 3 digits
+                if start + length > len(s):
+                    break
+                segment = s[start:start+length]
+                if is_valid(segment):
+                    backtrack(start + length, path + [segment])
+
+        backtrack(0, [])
+        return result
