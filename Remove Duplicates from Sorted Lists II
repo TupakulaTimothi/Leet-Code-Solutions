@@ -1,0 +1,26 @@
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        # Create a dummy node to simplify edge cases
+        dummy = ListNode(0)
+        dummy.next = head
+        prev = dummy
+        current = head
+
+        while current:
+            # Check for duplicates
+            if current.next and current.val == current.next.val:
+                # Skip all nodes with the same value
+                while current.next and current.val == current.next.val:
+                    current = current.next
+                # Connect prev to the node after the last duplicate
+                prev.next = current.next
+            else:
+                # No duplicate, move prev forward
+                prev = prev.next
+            current = current.next
+
+        return dummy.next
