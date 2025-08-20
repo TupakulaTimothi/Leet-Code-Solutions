@@ -1,0 +1,12 @@
+class Solution(object):
+    def maximumProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums.sort()
+        # Case 1: product of three largest numbers
+        max1 = nums[-1] * nums[-2] * nums[-3]
+        # Case 2: product of two smallest (possibly negative) and the largest
+        max2 = nums[0] * nums[1] * nums[-1]
+        return max(max1, max2)
