@@ -1,0 +1,10 @@
+class Solution(object):
+    def repeatedSubstringPattern(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        # Concatenate the string with itself and remove the first and last characters
+        doubled = (s + s)[1:-1]
+        # Check if the original string exists in this modified version
+        return s in doubled
