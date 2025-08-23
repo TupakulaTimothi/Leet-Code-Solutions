@@ -1,0 +1,9 @@
+class Solution(object):
+    def minBitFlips(self, start, goal):
+        ans=start^goal
+        c=0
+        while ans:
+            if ans& 1:
+                c+=1
+            ans=ans>>1
+        return c
