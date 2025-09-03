@@ -1,0 +1,16 @@
+class Solution(object):
+    def isValid(self, s):
+        s1=[]
+        d={']':'[','}':'{',')':'('}
+        for i in s:
+            if i not in d:
+                s1.append(i)
+            else:
+                if len(s1)!=0:
+                    if d[i]==s1[-1]:
+                        s1.pop()
+                    else:
+                        return False
+                else:
+                    return False
+        return len(s1)==0
